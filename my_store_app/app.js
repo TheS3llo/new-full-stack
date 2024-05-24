@@ -1,47 +1,6 @@
 const URL_BASE = "http://localhost:3000";
 const mainDiv = document.querySelector("#main_list");
-const isLoggedIn = true;
-const token = localStorage.getItem("token");
 
-if (token) {
-    // Si hay un token, hacer una solicitud al backend para obtener la lista de productos
-    fetch("ruta/al/backend/lista-de-productos", {
-        method: "GET",
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("No se pudo obtener la lista de productos");
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Mostrar la lista de productos en la página
-        const productList = document.getElementById("main_list");
-        // Código para mostrar la lista de productos
-    })
-    .catch(error => {
-        console.error("Error al obtener la lista de productos:", error);
-    });
-}
-
-window.onload = function() {
-    // Mostrar elementos si el usuario está conectado
-    if (isLoggedIn) {
-        document.getElementById("recentlyAddedTitle").style.display = "block";
-        document.getElementById("main_list").style.display = "block";
-    }
-};
-
-// Supongamos que esta función se llama cuando el usuario ha iniciado sesión correctamente
-function mostrarMainList() {
-    // Obtener la referencia a la div main_list
-    var mainListDiv = document.getElementById("main_list");
-    // Quitar la clase 'hidden'
-    mainListDiv.classList.remove("hidden");
-}
 
 
 // Obtener y mostrar productos
